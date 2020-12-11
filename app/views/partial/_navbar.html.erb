@@ -1,0 +1,20 @@
+<nav>
+  <% if user_signed_in? %>
+    <%
+=begin%>
+ <strong><%= link_to current_user.username, home_top_path %></strong> 
+<%
+=end%>
+    <%= link_to 'プロフィール変更', edit_user_registration_path %>
+    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+    <%= link_to 'プロフィール', user_path(current_user) %>
+  <% else %>
+    <%= link_to 'サインアップ', new_user_registration_path %>
+    <%= link_to 'ログイン', new_user_session_path %>
+  <% end %>
+  <%
+=begin%>
+ <%= current_user.username %>さん 
+<%
+=end%>
+</nav>
